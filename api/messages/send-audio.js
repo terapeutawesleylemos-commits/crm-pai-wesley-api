@@ -1,0 +1,1 @@
+import { requireAuth } from '../_auth.js'; export const config={api:{bodyParser:false}}; export default async function handler(req,res){ const user=requireAuth(req,res); if(!user) return res.status(401).end(); if(req.method!=='POST') return res.status(405).end(); return res.json({ok:true,url:'https://files.example.com/audio-demo.webm'}); }

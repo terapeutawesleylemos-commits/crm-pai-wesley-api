@@ -1,0 +1,1 @@
+import jwt from 'jsonwebtoken'; export function requireAuth(req,res){ const h=req.headers.authorization||''; const t=h.startsWith('Bearer ')?h.slice(7):null; if(!t) return null; try{return jwt.verify(t,process.env.JWT_SECRET||'secret');}catch(e){return null;} }
